@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CORE OUTFITS | Chrome Noir Luxury Streetwear</title>
+  <meta name="description" content="AURIX - Premium futuristic streetwear. Chrome noir aesthetic, gothic luxury fashion.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Cormorant Garamond', 'serif'],
+            body: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-body bg-[#f8f7f4] text-[#0a0a0a] antialiased selection:bg-black selection:text-white">
+
+  <!-- ==========================================
+       LOADING SCREEN
+       ========================================== -->
+  <div id="loading-screen" class="loading-screen">
+    <div class="loading-spinner mb-8"></div>
+    <h1 class="font-display text-4xl tracking-[0.3em] uppercase">Core Outfits</h1>
+    <p class="text-xs tracking-[0.4em] uppercase mt-3 text-gray-400">Chrome Noir</p>
+  </div>
+
+  <!-- ==========================================
+       FLOATING CHROME DECORATIVE OBJECTS
+       ========================================== -->
+  <div class="floating-objects-container fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <!-- Orb 1 -->
+    <div class="chrome-orb w-32 h-32 top-[15%] left-[8%] animate-float-slow opacity-40"></div>
+    <!-- Orb 2 -->
+    <div class="chrome-orb w-20 h-20 top-[60%] right-[10%] animate-float opacity-30" style="animation-delay: 2s;"></div>
+    <!-- Orb 3 -->
+    <div class="chrome-orb w-16 h-16 bottom-[20%] left-[15%] animate-float-slow opacity-35" style="animation-delay: 4s;"></div>
+    <!-- Ring 1 -->
+    <div class="chrome-ring w-40 h-40 top-[25%] right-[20%] animate-float opacity-25" style="animation-delay: 1s;"></div>
+    <!-- Ring 2 -->
+    <div class="chrome-ring w-24 h-24 bottom-[30%] right-[25%] animate-float-slow opacity-20" style="animation-delay: 3s;"></div>
+    <!-- Star shape using SVG -->
+    <svg class="absolute top-[40%] left-[5%] w-16 h-16 animate-float opacity-30" style="animation-delay: 2.5s;" viewBox="0 0 24 24" fill="none">
+      <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" fill="url(#chromeGrad)"/>
+      <defs>
+        <linearGradient id="chromeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#e0e0e0"/>
+          <stop offset="50%" stop-color="#ffffff"/>
+          <stop offset="100%" stop-color="#a0a0a0"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <!-- ==========================================
+       NAVBAR
+       ========================================== -->
+  <nav id="navbar" class="navbar-pill fixed top-6 left-1/2 -translate-x-1/2 z-50 glass rounded-full px-4 lg:px-8 py-3 flex items-center justify-between gap-4 lg:gap-12 w-[calc(100%-2rem)] max-w-4xl transition-all duration-500">
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu-btn" class="lg:hidden p-2 -ml-2">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+      </svg>
+    </button>
+
+    <!-- Logo -->
+    <a href="#" class="font-display text-2xl font-semibold tracking-wider shrink-0">CORE OUTFITS</a>
+
+    <!-- Desktop Links -->
+    <div class="hidden lg:flex items-center gap-8">
+      <a href="#hero" class="text-xs font-medium tracking-widest uppercase hover:opacity-60 transition-opacity">Home</a>
+      <a href="#shop" class="text-xs font-medium tracking-widest uppercase hover:opacity-60 transition-opacity">Featured</a>
+      <a href="shop.html" class="text-xs font-medium tracking-widest uppercase hover:opacity-60 transition-opacity">Shop</a>
+      <a href="#new" class="text-xs font-medium tracking-widest uppercase hover:opacity-60 transition-opacity">About</a>
+      <a href="#footer" class="text-xs font-medium tracking-widest uppercase hover:opacity-60 transition-opacity">Contact</a>
+    </div>
+
+    <!-- Icons -->
+    <div class="flex items-center gap-3 lg:gap-5">
+      <button id="search-btn" class="p-2 hover:opacity-60 transition-opacity">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
+        </svg>
+      </button>
+      <button class="p-2 hover:opacity-60 transition-opacity relative">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+        </svg>
+        <span id="wishlist-count" class="absolute -top-1 -right-1 w-4 h-4 bg-black text-white text-[10px] rounded-full flex items-center justify-center font-semibold">0</span>
+      </button>
+      <button id="cart-btn" onclick="openCart()" class="p-2 hover:opacity-60 transition-opacity relative">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z"/>
+        </svg>
+        <span id="cart-count" class="absolute -top-1 -right-1 w-4 h-4 bg-black text-white text-[10px] rounded-full flex items-center justify-center font-semibold">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden fixed top-24 left-4 right-4 z-40 glass-strong rounded-2xl p-6 lg:hidden">
+    <div class="flex flex-col gap-4">
+      <a href="#hero" class="text-sm font-medium tracking-widest uppercase py-2 border-b border-gray-100">Home</a>
+      <a href="#shop" class="text-sm font-medium tracking-widest uppercase py-2 border-b border-gray-100">Featured</a>
+      <a href="shop.html" class="text-sm font-medium tracking-widest uppercase py-2 border-b border-gray-100">Shop</a>
+      <a href="#new" class="text-sm font-medium tracking-widest uppercase py-2 border-b border-gray-100">About</a>
+      <a href="#footer" class="text-sm font-medium tracking-widest uppercase py-2">Contact</a>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       HERO SECTION
+       ========================================== -->
+  <section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
+    <!-- Slides Container -->
+    <div id="hero-slides" class="absolute inset-0">
+      <!-- Injected by JS -->
+    </div>
+
+    <!-- Gradient Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-r from-[#f8f7f4]/90 via-[#f8f7f4]/50 to-transparent z-[1]"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full pt-24">
+      <div class="max-w-2xl">
+        <p id="hero-subtitle" class="hero-animate text-xs lg:text-sm tracking-[0.3em] uppercase mb-6 text-gray-600 opacity-0 transition-all duration-700 translate-y-4">
+          Chrome Noir Collection
+        </p>
+        <h1 id="hero-title" class="hero-animate font-display text-5xl sm:text-6xl lg:text-8xl xl:text-9xl font-medium leading-[0.85] mb-8 opacity-0 transition-all duration-700 translate-y-4 text-balance">
+          Future<br>Gothic
+        </h1>
+        <p class="hero-animate text-gray-600 max-w-md mb-10 leading-relaxed opacity-0 transition-all duration-700 translate-y-4 text-sm lg:text-base">
+          Where chrome reflections meet gothic silhouettes. A new dimension of luxury streetwear crafted for the avant-garde.
+        </p>
+        <div class="hero-animate flex flex-wrap gap-4 opacity-0 transition-all duration-700 translate-y-4">
+          <a href="#shop" class="btn-primary btn-magnetic rounded-full px-8 py-4 text-xs tracking-widest uppercase">
+            Shop Now
+          </a>
+          <a href="#new" class="btn-outline btn-magnetic rounded-full px-8 py-4 text-xs tracking-widest uppercase bg-white/50 backdrop-blur-sm">
+            New Collection
+          </a>
+        </div>
+      </div>
+
+      <!-- Slide Progress -->
+      <div id="hero-progress" class="absolute bottom-12 left-6 lg:left-12 flex gap-2 w-32">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+
+    <!-- Floating Decorative Elements in Hero -->
+    <div class="absolute top-[20%] right-[15%] w-64 h-64 chrome-ring opacity-20 animate-float-slow pointer-events-none z-[2]"></div>
+    <div class="absolute bottom-[25%] right-[30%] w-24 h-24 chrome-orb opacity-30 animate-float pointer-events-none z-[2]"></div>
+  </section>
+
+  <!-- ==========================================
+       NEW COLLECTION SHOWCASE
+       ========================================== -->
+  <section id="new" class="py-24 lg:py-40 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="text-center mb-16 reveal">
+        <p class="text-xs tracking-[0.3em] uppercase text-gray-500 mb-4">Spring / Summer 2026</p>
+        <h2 class="font-display text-4xl lg:text-6xl font-medium">New Collection</h2>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-6 lg:gap-8">
+        <!-- Large Feature Card -->
+        <div class="group relative aspect-[4/5] lg:aspect-auto lg:row-span-2 rounded-3xl overflow-hidden reveal">
+          <img id="collection-img-1" src="https://res.cloudinary.com/dvlnrzuw9/image/upload/v1781171510/Picsart_26-06-11_15-37-02-220_fd2c8u.webp" 
+               alt="New Collection" 
+               class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-8 lg:p-12">
+            <span class="badge-new mb-4 inline-block">New Arrival</span>
+            <h3 class="font-display text-3xl lg:text-5xl text-white font-medium mb-2">Green Tee</h3>
+            <a href="#shop" class="inline-flex items-center gap-2 text-white text-sm tracking-widest uppercase group/link">
+              Explore 
+              <svg class="w-4 h-4 transition-transform group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Smaller Cards -->
+        <div class="group relative aspect-[16/10] rounded-3xl overflow-hidden reveal reveal-delay-2">
+          <img id="collection-img-2" src="https://res.cloudinary.com/dvlnrzuw9/image/upload/v1781171509/Picsart_26-06-11_15-36-45-166_hdzfbq.webp" 
+               alt="Editorial" 
+               class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-8">
+            <h3 class="font-display text-2xl text-white font-medium mb-1">Black Tee</h3>
+            <p class="text-white/60 text-xs tracking-widest uppercase">Tee</p>
+          </div>
+        </div>
+
+        <div class="group relative aspect-[16/10] rounded-3xl overflow-hidden reveal reveal-delay-3">
+          <img id="collection-img-3" src="https://res.cloudinary.com/dvlnrzuw9/image/upload/v1781171510/Picsart_26-06-11_15-37-19-130_ddzkxb.webp" 
+               alt="Accessories" 
+               class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-8">
+            <h3 class="font-display text-2xl text-white font-medium mb-1">White Tee</h3>
+            <p class="text-white/60 text-xs tracking-widest uppercase">Tee</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       PRODUCT GRID + FILTERS
+       ========================================== -->
+  <section id="shop" class="py-8 lg:py-12">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
+
+        <!-- Sidebar Filters -->
+        <aside class="lg:w-64 flex-shrink-0 space-y-8 reveal">
+          <!-- Search -->
+          <div>
+            <h4 class="text-xs font-semibold uppercase tracking-widest mb-4">Search</h4>
+            <div class="relative">
+              <input type="text" id="search-input" placeholder="Search products..." 
+                     class="glass-input rounded-xl pl-10 text-sm">
+              <svg class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Price Range -->
+          <div>
+            <h4 class="text-xs font-semibold uppercase tracking-widest mb-4">Price Range</h4>
+            <div class="flex items-center gap-3">
+              <div class="relative flex-1">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-xs text-gray-400">৳</span>
+                <input type="number" id="price-min" value="0" min="0" max="50000" 
+                       class="glass-input rounded-xl pl-6 text-sm w-full">
+              </div>
+              <span class="text-gray-400">-</span>
+              <div class="relative flex-1">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-xs text-gray-400">৳</span>
+                <input type="number" id="price-max" value="50000" min="0" max="50000" 
+                       class="glass-input rounded-xl pl-6 text-sm w-full">
+              </div>
+            </div>
+          </div>
+
+          <!-- Size Filter -->
+          <div>
+            <h4 class="text-xs font-semibold uppercase tracking-widest mb-4">Size</h4>
+            <div class="flex flex-wrap gap-2">
+              <button class="filter-size selector-option rounded-lg text-xs py-2 px-3" data-size="S">S</button>
+              <button class="filter-size selector-option rounded-lg text-xs py-2 px-3" data-size="M">M</button>
+              <button class="filter-size selector-option rounded-lg text-xs py-2 px-3" data-size="L">L</button>
+              <button class="filter-size selector-option rounded-lg text-xs py-2 px-3" data-size="XL">XL</button>
+              <button class="filter-size selector-option rounded-lg text-xs py-2 px-3" data-size="XXL">XXL</button>
+            </div>
+          </div>
+
+          <!-- Reset -->
+          <button onclick="resetFilters()" class="text-xs tracking-widest uppercase underline hover:no-underline transition-all">
+            Reset Filters
+          </button>
+        </aside>
+
+        <!-- Product Grid -->
+        <div class="flex-1">
+          <div class="mb-8 reveal">
+            <div id="category-filters" class="flex flex-wrap gap-3">
+              <!-- Injected by JS -->
+            </div>
+          </div>
+          <div class="flex items-center justify-between mb-8 reveal">
+            <h2 class="font-display text-3xl lg:text-4xl font-medium">Latest Arrivals</h2>
+            <span class="text-sm text-gray-500" id="product-count">Loading...</span>
+          </div>
+          <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+            <!-- Injected by JS -->
+          </div>
+          <div class="mt-12 text-center reveal">
+            <a href="shop.html" class="btn-outline btn-magnetic rounded-full px-8 py-4 text-xs tracking-widest uppercase inline-flex">
+              View All Products
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       REVIEWS & SOCIAL PROOF
+       ========================================== -->
+  <section id="reviews" class="py-24 lg:py-40 relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-transparent pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 relative">
+      <div class="text-center mb-16 reveal">
+        <p class="text-xs tracking-[0.3em] uppercase text-gray-500 mb-4">Testimonials</p>
+        <h2 class="font-display text-4xl lg:text-6xl font-medium">What They Say</h2>
+      </div>
+
+      <div id="reviews-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Injected by JS -->
+      </div>
+
+      <!-- Social Proof Stats -->
+      <div class="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-8 reveal">
+        <div class="text-center">
+          <p class="font-display text-4xl lg:text-5xl font-medium mb-2">500+</p>
+          <p class="text-xs tracking-widest uppercase text-gray-500">Orders Delivered</p>
+        </div>
+        <div class="text-center">
+          <p class="font-display text-4xl lg:text-5xl font-medium mb-2">12k</p>
+          <p class="text-xs tracking-widest uppercase text-gray-500">Happy Customers</p>
+        </div>
+        <div class="text-center">
+          <p class="font-display text-4xl lg:text-5xl font-medium mb-2">4.9</p>
+          <p class="text-xs tracking-widest uppercase text-gray-500">Average Rating</p>
+        </div>
+        <div class="text-center">
+          <p class="font-display text-4xl lg:text-5xl font-medium mb-2">48h</p>
+          <p class="text-xs tracking-widest uppercase text-gray-500">Fast Shipping</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       TIKTOK SECTION
+       ========================================== -->
+  <section id="tiktok" class="py-20 lg:py-32 bg-black text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 relative">
+      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        <div class="lg:w-1/2 reveal">
+          <p class="text-xs tracking-[0.3em] uppercase text-gray-400 mb-4">Social</p>
+          <h2 class="font-display text-4xl lg:text-6xl font-medium mb-6">TikTok Viral</h2>
+          <p class="text-gray-400 leading-relaxed mb-8 max-w-md">
+            Join 50K+ followers witnessing the chrome noir revolution. Our latest campaign broke 2M views in 24 hours.
+          </p>
+          <a id="tiktok-follow-btn" href="#" target="_blank" rel="noopener" class="inline-flex items-center gap-3 btn-chrome btn-magnetic rounded-full px-8 py-4 text-xs tracking-widest uppercase text-black">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.88-2.89 2.89 2.89 0 012.88-2.88c.26 0 .51.04.75.1V9.4a6.36 6.36 0 00-.75-.05A6.34 6.34 0 005.5 15.69a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.35a8.23 8.23 0 004.83 1.55V6.69h-.42z"/>
+            </svg>
+            Follow @coreoutfits.official
+          </a>
+        </div>
+        <div class="lg:w-1/2 reveal reveal-delay-2">
+          <div class="relative aspect-[9/16] max-w-sm mx-auto rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-white/5">
+            <img src="https://res.cloudinary.com/dvlnrzuw9/image/upload/v1781171507/Picsart_26-06-11_15-31-25-909_cwzloz.webp" 
+                 alt="TikTok Content" 
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30">
+                <svg class="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="absolute bottom-6 left-6 right-6">
+              <p class="text-white font-medium text-sm mb-1">@coreoutfits.official</p>
+              <p class="text-white/60 text-xs">The chrome bomber that broke the internet ✨ 2.1M views</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       INSTAGRAM SHOWCASE
+       ========================================== -->
+  <section id="instagram" class="py-20 lg:py-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="text-center mb-16 reveal">
+        <a id="instagram-handle-link" href="#" target="_blank" rel="noopener" class="text-xs tracking-[0.3em] uppercase text-gray-500 mb-4 inline-block hover:text-black transition-colors">@coreoutfits.official</a>
+        <h2 class="font-display text-4xl lg:text-6xl font-medium">Instagram</h2>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-4 reveal">
+        <div class="instagram-item rounded-2xl">
+          <img src="https://res.cloudinary.com/dvlnrzuw9/image/upload/v1781171507/Picsart_26-06-11_15-32-09-255_bmzul9.webp" alt="IG 1" class="w-full h-full object-cover">
+          <div class="insta-overlay">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="instagram-item rounded-2xl">
+          <img src="https://res.cloudinary.com/dvlnrzuw9/image/upload/v1781171507/Picsart_26-06-11_15-32-26-724_ndohsy.webp" alt="IG 2" class="w-full h-full object-cover">
+          <div class="insta-overlay">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="instagram-item rounded-2xl">
+          <img src="https://res.cloudinary.com/dvlnrzuw9/image/upload/v1781171510/Picsart_26-06-11_15-38-21-194_esvozs.webp" alt="IG 3" class="w-full h-full object-cover">
+          <div class="insta-overlay">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="instagram-item rounded-2xl">
+          <img src="https://res.cloudinary.com/dvlnrzuw9/image/upload/v1781171510/Picsart_26-06-11_15-38-21-194_esvozs.webp" alt="IG 4" class="w-full h-full object-cover">
+          <div class="insta-overlay">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="instagram-item rounded-2xl">
+          <img src="https://res.cloudinary.com/dvlnrzuw9/image/upload/v1781171510/Picsart_26-06-11_15-37-02-220_fd2c8u.webp" alt="IG 5" class="w-full h-full object-cover">
+          <div class="insta-overlay">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="instagram-item rounded-2xl">
+          <img src="https://res.cloudinary.com/dvlnrzuw9/image/upload/v1781171509/Picsart_26-06-11_15-36-45-166_hdzfbq.webp" alt="IG 6" class="w-full h-full object-cover">
+          <div class="insta-overlay">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12 reveal">
+        <a id="instagram-follow-btn" href="#" target="_blank" rel="noopener" class="inline-flex items-center gap-3 btn-primary btn-magnetic rounded-full px-8 py-4 text-xs tracking-widest uppercase">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+          </svg>
+          Follow on Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer id="footer" class="glass-strong mt-20 border-t border-white/30">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-24">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+        <!-- Brand -->
+        <div class="lg:col-span-1">
+          <h3 class="font-display text-3xl font-medium mb-4 store-name-text">CORE OUTFITS</h3>
+          <p class="text-sm text-gray-500 leading-relaxed mb-6">
+            Chrome noir luxury streetwear for the avant-garde. Crafted between shadow and light.
+          </p>
+          <div class="flex gap-4 footer-social-icons">
+            <!-- Injected by JS from Settings table -->
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-widest mb-6">Shop</h4>
+          <ul class="space-y-3">
+            <li><a href="shop.html" class="text-sm text-gray-500 hover:text-black transition-colors">All Products</a></li>
+            <li><a href="shop.html?category=tshirts" class="text-sm text-gray-500 hover:text-black transition-colors">T-Shirts</a></li>
+            <li><a href="shop.html?category=hoodies" class="text-sm text-gray-500 hover:text-black transition-colors">Hoodies</a></li>
+            <li><a href="shop.html?category=bandanas" class="text-sm text-gray-500 hover:text-black transition-colors">Bandanas</a></li>
+            <li><a href="shop.html?category=accessories" class="text-sm text-gray-500 hover:text-black transition-colors">Accessories</a></li>
+          </ul>
+        </div>
+
+        <!-- Support -->
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-widest mb-6">Support</h4>
+          <ul class="space-y-3">
+            <li><a href="#footer" class="text-sm text-gray-500 hover:text-black transition-colors">Contact Us</a></li>
+            <li><a href="shipping-policy.html" class="text-sm text-gray-500 hover:text-black transition-colors">Shipping Policy</a></li>
+            <li><a href="return-policy.html" class="text-sm text-gray-500 hover:text-black transition-colors">Return Policy</a></li>
+            <li><a href="size-guide.html" class="text-sm text-gray-500 hover:text-black transition-colors">Size Guide</a></li>
+            <li><a href="terms-conditions.html" class="text-sm text-gray-500 hover:text-black transition-colors">Terms &amp; Conditions</a></li>
+            <li><a href="privacy-policy.html" class="text-sm text-gray-500 hover:text-black transition-colors">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-widest mb-6">Newsletter</h4>
+          <p class="text-sm text-gray-500 mb-4">Subscribe for exclusive drops and early access.</p>
+          <form onsubmit="subscribeNewsletter(event)" class="flex gap-2">
+            <input type="email" placeholder="Your email" required 
+                   class="glass-input rounded-xl flex-1 text-sm">
+            <button type="submit" class="px-5 py-3 bg-black text-white rounded-xl text-xs font-medium tracking-wider uppercase hover:bg-gray-800 transition-colors">
+              Join
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-xs text-gray-400">&copy; 2026 <span class="store-name-text">CORE OUTFITS</span>. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="privacy-policy.html" class="text-xs text-gray-400 hover:text-black transition-colors">Privacy Policy</a>
+          <a href="terms-conditions.html" class="text-xs text-gray-400 hover:text-black transition-colors">Terms &amp; Conditions</a>
+          <a href="return-policy.html" class="text-xs text-gray-400 hover:text-black transition-colors">Returns</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       CART DRAWER
+       ========================================== -->
+  <div id="cart-overlay" class="cart-overlay" onclick="closeCart()"></div>
+  <div id="cart-drawer" class="cart-drawer glass-strong flex flex-col">
+    <div class="p-6 border-b border-gray-100 flex items-center justify-between">
+      <h3 class="font-display text-2xl font-medium">Your Cart</h3>
+      <button onclick="closeCart()" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-black hover:text-white transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-4">
+      <!-- Injected by JS -->
+    </div>
+
+    <div class="p-6 border-t border-gray-100 space-y-4">
+      <div class="flex justify-between items-center">
+        <span class="text-sm text-gray-500">Subtotal</span>
+        <span id="cart-subtotal" class="font-semibold text-lg">৳0</span>
+      </div>
+      <p class="text-xs text-gray-400">Shipping and taxes calculated at checkout.</p>
+      <button onclick="openCheckout()" class="w-full btn-chrome btn-magnetic py-4 rounded-full text-sm tracking-widest uppercase font-semibold">
+        Proceed to Checkout
+      </button>
+      <button onclick="closeCart()" class="w-full text-center text-xs tracking-widest uppercase underline hover:no-underline transition-all py-2">
+        Continue Shopping
+      </button>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       CHECKOUT MODAL
+       ========================================== -->
+  <div id="checkout-modal" class="checkout-modal">
+    <div class="checkout-modal-overlay" onclick="closeCheckout()"></div>
+    <div class="checkout-modal-content glass-strong rounded-3xl overflow-hidden">
+      <div class="p-6 lg:p-10 max-h-[90vh] overflow-y-auto">
+        <div class="flex items-center justify-between mb-8">
+          <div>
+            <h3 class="font-display text-3xl font-medium">Checkout</h3>
+            <p class="text-sm text-gray-500 mt-1">Order ID: <span id="checkout-order-id" class="font-mono">---</span></p>
+          </div>
+          <button onclick="closeCheckout()" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-black hover:text-white transition-colors shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="mb-8 p-6 glass-card rounded-2xl">
+          <h4 class="text-xs font-semibold uppercase tracking-widest mb-4">Order Summary</h4>
+          <div id="checkout-summary" class="space-y-2">
+            <!-- Injected by JS -->
+          </div>
+          <div class="mt-4 pt-4 border-t border-gray-100 flex justify-between items-center">
+            <span class="font-semibold">Total</span>
+            <span id="checkout-total" class="font-display text-2xl font-medium">৳0</span>
+          </div>
+        </div>
+
+        <!-- Checkout Form -->
+        <form onsubmit="submitCheckout(event)" class="space-y-6">
+          <!-- Customer Info -->
+          <div>
+            <h4 class="text-xs font-semibold uppercase tracking-widest mb-4">Customer Information</h4>
+            <div class="grid md:grid-cols-2 gap-4">
+              <input type="text" name="fullName" placeholder="Full Name" required class="glass-input rounded-xl md:col-span-2">
+              <input type="tel" name="phone" placeholder="Phone Number" required class="glass-input rounded-xl md:col-span-2">
+            </div>
+          </div>
+
+          <!-- Delivery Info -->
+          <div>
+            <h4 class="text-xs font-semibold uppercase tracking-widest mb-4">Delivery Address</h4>
+            <div class="grid md:grid-cols-2 gap-4">
+              <select name="district" id="checkout-district" required class="glass-input rounded-xl">
+                <option value="" disabled selected>Select District</option>
+              </select>
+              <input type="text" name="thana" placeholder="Thana / Upazila" required class="glass-input rounded-xl">
+              <input type="text" name="area" placeholder="Area Name" required class="glass-input rounded-xl">
+              <input type="text" name="zip" placeholder="ZIP Code" class="glass-input rounded-xl">
+              <input type="text" name="houseNumber" placeholder="House Number" class="glass-input rounded-xl">
+              <input type="text" name="sector" placeholder="Sector / Block" class="glass-input rounded-xl">
+              <input type="text" name="postOffice" placeholder="Post Office" class="glass-input rounded-xl">
+              <input type="text" name="roadNumber" placeholder="Road Number" class="glass-input rounded-xl">
+            </div>
+          </div>
+
+          <!-- Payment -->
+          <div>
+            <h4 class="text-xs font-semibold uppercase tracking-widest mb-4">Payment Method</h4>
+            <div class="space-y-3">
+              <label class="flex items-center gap-3 p-4 glass-card rounded-xl cursor-pointer hover:border-black/20 transition-colors">
+                <input type="radio" name="payment" value="bkash" class="w-4 h-4 accent-black" onchange="onPaymentMethodChange()">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-lg bg-pink-500 flex items-center justify-center text-white font-bold text-xs">bK</div>
+                  <div>
+                    <p class="font-medium text-sm">bKash</p>
+                    <p class="text-xs text-gray-500">Mobile banking</p>
+                  </div>
+                </div>
+              </label>
+
+              <!-- bKash Payment Instructions -->
+              <div id="bkash-instructions" class="bkash-info-box hidden">
+                <p class="text-sm text-gray-600 mb-2">Send the exact amount below to our bKash number using <strong>Send Money</strong>, then complete your order. We'll verify your payment and confirm your order shortly.</p>
+                <div class="flex items-center justify-between flex-wrap gap-2">
+                  <div>
+                    <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">bKash Number</p>
+                    <p id="bkash-number-display" class="bkash-number">---</p>
+                  </div>
+                  <div>
+                    <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Amount to Send</p>
+                    <p id="bkash-amount-display" class="bkash-amount">৳0</p>
+                  </div>
+                </div>
+                <a id="bkash-pay-link" href="bkash://pay?amount=0" class="bkash-pay-link">
+                  Open bKash App
+                </a>
+              </div>
+
+              <label class="flex items-center gap-3 p-4 glass-card rounded-xl cursor-pointer hover:border-black/20 transition-colors">
+                <input type="radio" name="payment" value="cod" checked class="w-4 h-4 accent-black" onchange="onPaymentMethodChange()">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-lg bg-gray-200 flex items-center justify-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-medium text-sm">Cash on Delivery</p>
+                    <p class="text-xs text-gray-500">Pay when you receive</p>
+                  </div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="w-full btn-chrome btn-magnetic py-5 rounded-full text-sm tracking-widest uppercase font-semibold animate-glow">
+            Place Order
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       SEARCH OVERLAY
+       ========================================== -->
+  <div id="search-overlay" class="search-overlay">
+    <div class="search-overlay-bg" onclick="closeSearch()"></div>
+    <div class="relative z-10 w-full max-w-2xl px-6">
+      <div class="relative">
+        <input type="text" id="search-input-overlay" placeholder="Search products..." 
+               class="w-full bg-transparent border-b-2 border-black text-3xl lg:text-5xl font-display py-4 outline-none placeholder:text-gray-300">
+        <button onclick="closeSearch()" class="absolute right-0 top-1/2 -translate-y-1/2 text-gray-400 hover:text-black transition-colors">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <p class="text-sm text-gray-400 mt-4">Press ESC to close</p>
+    </div>
+  </div>
+<script src="https://api.backendless.com/sdk/js/latest/backendless.min.js"></script>
+  <script src="js/backendless-config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/site.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

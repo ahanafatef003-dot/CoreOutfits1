@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | CORE OUTFITS</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       LOGIN SCREEN
+       ========================================== -->
+  <div id="login-screen" class="login-screen">
+    <div class="login-card glass-card">
+      <div class="login-logo">
+        <h1>Core Outfits</h1>
+        <p>Admin Dashboard</p>
+      </div>
+      <form id="login-form" class="space-y-4" style="display:flex; flex-direction:column; gap:16px;">
+        <div id="login-error" class="rate-limit-notice" style="display:none; background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.2); color:#b91c1c; padding: 12px 16px; border-radius: 12px; font-size: 0.8rem;"></div>
+        <div>
+          <label class="admin-label" for="login-email">Email</label>
+          <input type="email" id="login-email" class="admin-input" required autocomplete="username" placeholder="admin@example.com">
+        </div>
+        <div>
+          <label class="admin-label" for="login-password">Password</label>
+          <input type="password" id="login-password" class="admin-input" required autocomplete="current-password" placeholder="••••••••">
+        </div>
+        <button type="submit" id="login-submit-btn" class="btn-admin-primary" style="width:100%; padding: 14px; margin-top: 8px;">
+          Sign In
+        </button>
+      </form>
+      <p style="text-align:center; font-size:0.7rem; color: var(--mid-gray); margin-top: 24px; letter-spacing: 0.05em;">
+        Authorized personnel only. Sessions are managed via Backendless user tokens.
+      </p>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       ADMIN DASHBOARD LAYOUT
+       ========================================== -->
+  <div id="admin-layout" class="admin-layout" style="display:none;">
+
+    <!-- Sidebar -->
+    <aside id="admin-sidebar" class="admin-sidebar">
+      <div>
+        <div class="admin-sidebar-logo">Core Outfits</div>
+        <div class="admin-sidebar-sub">Admin Dashboard</div>
+      </div>
+
+      <nav class="admin-nav">
+        <button class="admin-nav-item active" data-section="overview" onclick="showSection('overview')">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/></svg>
+          Overview
+        </button>
+        <button class="admin-nav-item" data-section="products" onclick="showSection('products')">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"/></svg>
+          Products
+        </button>
+        <button class="admin-nav-item" data-section="orders" onclick="showSection('orders')">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 8.25v-.225c0-.621.504-1.125 1.125-1.125h17.25c.621 0 1.125.504 1.125 1.125v.225M2.25 8.25v9.75c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125V8.25M9 12.75h6"/></svg>
+          Orders
+        </button>
+        <button class="admin-nav-item" data-section="content" onclick="showSection('content')">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m6 0H6.108c-.621 0-1.158.41-1.318 1.011L4.5 4.5m1.5 16.5h12a1.5 1.5 0 001.5-1.5V8.25a4.5 4.5 0 00-4.5-4.5h-3"/></svg>
+          Site Content
+        </button>
+        <button class="admin-nav-item" data-section="settings" onclick="showSection('settings')">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 010 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.991a7.665 7.665 0 010-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.28z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          Settings
+        </button>
+      </nav>
+
+      <div class="admin-sidebar-footer">
+        <div class="admin-user-info">
+          <div class="admin-user-avatar" id="sidebar-user-avatar">A</div>
+          <div>
+            <div class="admin-user-name" id="sidebar-user-name">Admin</div>
+            <div class="admin-user-role" id="sidebar-user-role">admin</div>
+          </div>
+        </div>
+        <button class="btn-admin-secondary" style="width:100%;" onclick="logout()">Sign Out</button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+      <div class="admin-topbar">
+        <button class="admin-mobile-menu-btn" onclick="toggleSidebar()">
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+        </button>
+        <h1 id="page-heading" class="font-display">Overview</h1>
+        <div class="admin-search-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg>
+          <input type="text" id="global-search" class="admin-input" placeholder="Search products and orders...">
+        </div>
+      </div>
+
+      <!-- Global Search Results -->
+      <div id="search-results-section" style="display:none;">
+        <h2 style="font-size:1.5rem; font-weight:500; margin-bottom: 16px;">Search Results</h2>
+        <div id="search-results-products" class="admin-table-wrap glass-card" style="margin-bottom: 24px;"></div>
+        <div id="search-results-orders" class="admin-table-wrap glass-card"></div>
+        <button class="btn-admin-secondary" style="margin-top:16px;" onclick="clearGlobalSearch()">Clear Search</button>
+      </div>
+
+      <div id="sections-wrapper">
+
+        <!-- ==========================================
+             OVERVIEW SECTION
+             ========================================== -->
+        <section id="section-overview" class="admin-section active">
+          <div class="stat-grid">
+            <div class="stat-card glass-card">
+              <div class="stat-card-label">Total Products</div>
+              <div class="stat-card-value" id="stat-total-products">--</div>
+            </div>
+            <div class="stat-card glass-card">
+              <div class="stat-card-label">Total Orders</div>
+              <div class="stat-card-value" id="stat-total-orders">--</div>
+            </div>
+            <div class="stat-card glass-card">
+              <div class="stat-card-label">Total Revenue</div>
+              <div class="stat-card-value" id="stat-total-revenue">--</div>
+              <div class="stat-card-sub">Sum of all order totals</div>
+            </div>
+            <div class="stat-card glass-card">
+              <div class="stat-card-label">Low Stock Items</div>
+              <div class="stat-card-value" id="stat-low-stock">--</div>
+              <div class="stat-card-sub">Stock quantity ≤ 5</div>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns: 1fr; gap: 24px;">
+            <div class="glass-card" style="padding: 24px; border-radius: 20px;">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;">
+                <h3 style="font-size:1.25rem; font-weight:500;">Recent Orders</h3>
+                <button class="btn-admin-secondary" onclick="showSection('orders')">View All</button>
+              </div>
+              <div class="admin-table-wrap">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Order ID</th>
+                      <th>Customer</th>
+                      <th>Total</th>
+                      <th>Payment</th>
+                      <th>Status</th>
+                      <th>Date</th>
+                    </tr>
+                  </thead>
+                  <tbody id="recent-orders-tbody">
+                    <tr><td colspan="6" class="admin-empty">Loading...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="glass-card" style="padding: 24px; border-radius: 20px;">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;">
+                <h3 style="font-size:1.25rem; font-weight:500;">Low Stock Products</h3>
+                <button class="btn-admin-secondary" onclick="showSection('products')">Manage Products</button>
+              </div>
+              <div class="admin-table-wrap">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Image</th>
+                      <th>Name</th>
+                      <th>Category</th>
+                      <th>Stock</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="low-stock-tbody">
+                    <tr><td colspan="5" class="admin-empty">Loading...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             PRODUCTS SECTION
+             ========================================== -->
+        <section id="section-products" class="admin-section">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; flex-wrap:wrap; gap:12px;">
+            <p style="color: var(--mid-gray); font-size:0.85rem;" id="products-count-label">Loading products...</p>
+            <button class="btn-admin-primary" onclick="openProductModal()">+ Add Product</button>
+          </div>
+
+          <div class="admin-table-wrap glass-card">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Name</th>
+                  <th>Category</th>
+                  <th>Price</th>
+                  <th>Stock</th>
+                  <th>Status</th>
+                  <th>Featured</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="products-tbody">
+                <tr><td colspan="8" class="admin-empty">Loading products...</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div id="products-pagination" class="admin-pagination"></div>
+        </section>
+
+        <!-- ==========================================
+             ORDERS SECTION
+             ========================================== -->
+        <section id="section-orders" class="admin-section">
+          <div class="admin-tabs" id="order-status-tabs">
+            <button class="admin-tab active" data-status="all" onclick="filterOrdersByStatus('all')">All</button>
+            <button class="admin-tab" data-status="Pending" onclick="filterOrdersByStatus('Pending')">Pending</button>
+            <button class="admin-tab" data-status="Confirmed" onclick="filterOrdersByStatus('Confirmed')">Confirmed</button>
+            <button class="admin-tab" data-status="Processing" onclick="filterOrdersByStatus('Processing')">Processing</button>
+            <button class="admin-tab" data-status="Shipped" onclick="filterOrdersByStatus('Shipped')">Shipped</button>
+            <button class="admin-tab" data-status="Delivered" onclick="filterOrdersByStatus('Delivered')">Delivered</button>
+            <button class="admin-tab" data-status="Cancelled" onclick="filterOrdersByStatus('Cancelled')">Cancelled</button>
+          </div>
+
+          <div class="admin-table-wrap glass-card">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Customer</th>
+                  <th>Phone</th>
+                  <th>District</th>
+                  <th>Total</th>
+                  <th>Payment</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="orders-tbody">
+                <tr><td colspan="9" class="admin-empty">Loading orders...</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div id="orders-pagination" class="admin-pagination"></div>
+        </section>
+
+        <!-- ==========================================
+             SITE CONTENT SECTION
+             ========================================== -->
+        <section id="section-content" class="admin-section">
+          <p style="color: var(--mid-gray); font-size:0.85rem; margin-bottom:20px;">
+            Manage the content shown on each policy page. Content supports basic HTML (headings, paragraphs, lists).
+          </p>
+
+          <div class="admin-tabs" id="content-tabs">
+            <button class="admin-tab active" data-key="privacy_policy" onclick="selectContentKey('privacy_policy')">Privacy Policy</button>
+            <button class="admin-tab" data-key="terms_conditions" onclick="selectContentKey('terms_conditions')">Terms &amp; Conditions</button>
+            <button class="admin-tab" data-key="shipping_policy" onclick="selectContentKey('shipping_policy')">Shipping Policy</button>
+            <button class="admin-tab" data-key="return_policy" onclick="selectContentKey('return_policy')">Return Policy</button>
+            <button class="admin-tab" data-key="homepage_announcement" onclick="selectContentKey('homepage_announcement')">Homepage Note</button>
+            <button class="admin-tab" data-key="footer_about" onclick="selectContentKey('footer_about')">Footer About</button>
+          </div>
+
+          <div class="glass-card" style="padding: 24px; border-radius: 20px;">
+            <label class="admin-label" id="content-editor-label">Privacy Policy (HTML)</label>
+            <textarea id="content-editor" class="admin-textarea" style="min-height: 320px; font-family: monospace; font-size: 0.8rem;" placeholder="Loading..."></textarea>
+            <div style="margin-top: 16px; display:flex; gap:12px;">
+              <button class="btn-admin-primary" onclick="saveSiteContent()">Save Content</button>
+              <span id="content-save-status" style="font-size:0.8rem; color: var(--mid-gray); align-self:center;"></span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             SETTINGS SECTION
+             ========================================== -->
+        <section id="section-settings" class="admin-section">
+          <div class="glass-card" style="padding: 28px; border-radius: 20px; max-width: 720px;">
+            <h3 style="font-size:1.25rem; font-weight:500; margin-bottom:20px;">Store Settings</h3>
+            <form id="settings-form" style="display:flex; flex-direction:column; gap:18px;">
+              <hr style="margin:20px 0;">
+
+<h3>Account Security</h3>
+
+<button
+  type="button"
+  class="btn-admin-primary"
+  onclick="sendPasswordReset()"
+>
+  Send Password Reset Email
+</button>
+
+<p style="font-size:12px; margin-top:10px;">
+  An email will be sent to your login email address.
+</p>
+              <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:18px;">
+                <div>
+                  <label class="admin-label" for="set-store-name">Store Name</label>
+                  <input type="text" id="set-store-name" name="store_name" class="admin-input" placeholder="AURIX">
+                </div>
+                <div>
+                  <label class="admin-label" for="set-store-logo">Store Logo URL</label>
+                  <input type="text" id="set-store-logo" name="store_logo" class="admin-input" placeholder="https://...">
+                </div>
+                <div>
+                  <label class="admin-label" for="set-contact-number">Contact Number</label>
+                  <input type="text" id="set-contact-number" name="contact_number" class="admin-input" placeholder="+8801XXXXXXXXX">
+                </div>
+                <div>
+                  <label class="admin-label" for="set-whatsapp-number">WhatsApp Number</label>
+                  <input type="text" id="set-whatsapp-number" name="whatsapp_number" class="admin-input" placeholder="8801XXXXXXXXX">
+                </div>
+                <div>
+                  <label class="admin-label" for="set-bkash-number">bKash Number</label>
+                  <input type="text" id="set-bkash-number" name="bkash_number" class="admin-input" placeholder="01XXXXXXXXX">
+                </div>
+                <div>
+                  <label class="admin-label" for="set-shipping-cost">Shipping Cost (৳)</label>
+                  <input type="number" id="set-shipping-cost" name="shipping_cost" class="admin-input" placeholder="0" min="0">
+                </div>
+                <div>
+                  <label class="admin-label" for="set-currency-symbol">Currency Symbol</label>
+                  <input type="text" id="set-currency-symbol" name="currency_symbol" class="admin-input" placeholder="৳">
+                </div>
+                <div>
+                  <label class="admin-label" for="set-facebook-url">Facebook URL</label>
+                  <input type="text" id="set-facebook-url" name="facebook_url" class="admin-input" placeholder="https://facebook.com/...">
+                </div>
+                <div>
+                  <label class="admin-label" for="set-instagram-url">Instagram URL</label>
+                  <input type="text" id="set-instagram-url" name="instagram_url" class="admin-input" placeholder="https://instagram.com/...">
+                </div>
+                <div>
+                  <label class="admin-label" for="set-tiktok-url">TikTok URL</label>
+                  <input type="text" id="set-tiktok-url" name="tiktok_url" class="admin-input" placeholder="https://tiktok.com/@...">
+                </div>
+              </div>
+
+              <!-- Hero Banner Images -->
+              <div style="margin-top:8px;">
+                <p style="font-weight:600; font-size:0.95rem; margin-bottom:14px; padding-bottom:8px; border-bottom:1px solid #eee;">
+                  🖼️ Hero Banner Images (paste image URLs)
+                </p>
+                <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:14px;">
+                  <div>
+                    <label class="admin-label" for="set-hero-image-1">Banner 1 (Main)</label>
+                    <input type="text" id="set-hero-image-1" name="hero_image_1" class="admin-input" placeholder="https://...">
+                  </div>
+                  <div>
+                    <label class="admin-label" for="set-hero-image-2">Banner 2</label>
+                    <input type="text" id="set-hero-image-2" name="hero_image_2" class="admin-input" placeholder="https://...">
+                  </div>
+                  <div>
+                    <label class="admin-label" for="set-hero-image-3">Banner 3</label>
+                    <input type="text" id="set-hero-image-3" name="hero_image_3" class="admin-input" placeholder="https://...">
+                  </div>
+                  <div>
+                    <label class="admin-label" for="set-hero-image-4">Banner 4</label>
+                    <input type="text" id="set-hero-image-4" name="hero_image_4" class="admin-input" placeholder="https://...">
+                  </div>
+                  <div>
+                    <label class="admin-label" for="set-hero-image-5">Banner 5</label>
+                    <input type="text" id="set-hero-image-5" name="hero_image_5" class="admin-input" placeholder="https://...">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Collection Images -->
+              <div style="margin-top:8px;">
+                <p style="font-weight:600; font-size:0.95rem; margin-bottom:14px; padding-bottom:8px; border-bottom:1px solid #eee;">
+                  🗂️ Collection Section Images (paste image URLs)
+                </p>
+                <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:14px;">
+                  <div>
+                    <label class="admin-label" for="set-collection-image-1">Collection Image 1 (Large)</label>
+                    <input type="text" id="set-collection-image-1" name="collection_image_1" class="admin-input" placeholder="https://...">
+                  </div>
+                  <div>
+                    <label class="admin-label" for="set-collection-image-2">Collection Image 2</label>
+                    <input type="text" id="set-collection-image-2" name="collection_image_2" class="admin-input" placeholder="https://...">
+                  </div>
+                  <div>
+                    <label class="admin-label" for="set-collection-image-3">Collection Image 3</label>
+                    <input type="text" id="set-collection-image-3" name="collection_image_3" class="admin-input" placeholder="https://...">
+                  </div>
+                </div>
+              </div>
+              <div style="display:flex; gap:12px; align-items:center; margin-top: 8px;">
+                <button type="submit" class="btn-admin-primary">Save Settings</button>
+                <span id="settings-save-status" style="font-size:0.8rem; color: var(--mid-gray);"></span>
+              </div>
+            </form>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ==========================================
+       PRODUCT MODAL (Add/Edit)
+       ========================================== -->
+  <div id="product-modal-overlay" class="admin-modal-overlay">
+    <div class="admin-modal">
+      <div class="admin-modal-header">
+        <h2 id="product-modal-title">Add Product</h2>
+        <button class="btn-icon" onclick="closeProductModal()">
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <form id="product-form" style="display:flex; flex-direction:column; gap:16px;">
+        <input type="hidden" id="product-id">
+
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:16px;">
+          <div>
+            <label class="admin-label" for="product-name">Name *</label>
+            <input type="text" id="product-name" class="admin-input" required>
+          </div>
+          <div>
+            <label class="admin-label" for="product-slug">Slug *</label>
+            <input type="text" id="product-slug" class="admin-input" required placeholder="e.g. black-tshirt-white">
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:16px;">
+          <div>
+            <label class="admin-label" for="product-category">Category *</label>
+            <select id="product-category" class="admin-select" required>
+              <option value="tshirts">T-Shirts</option>
+              <option value="bandanas">Bandanas</option>
+              <option value="hoodies">Hoodies</option>
+              <option value="accessories">Accessories</option>
+            </select>
+          </div>
+          <div>
+            <label class="admin-label" for="product-stock-status">Stock Status</label>
+            <select id="product-stock-status" class="admin-select">
+              <option value="In Stock">In Stock</option>
+              <option value="Low Stock">Low Stock</option>
+              <option value="Out of Stock">Out of Stock</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="admin-label" for="product-description">Description</label>
+          <textarea id="product-description" class="admin-textarea" style="min-height:80px;"></textarea>
+        </div>
+
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap:16px;">
+          <div>
+            <label class="admin-label" for="product-price">Price (৳) *</label>
+            <input type="number" id="product-price" class="admin-input" required min="0">
+          </div>
+          <div>
+            <label class="admin-label" for="product-sale-price">Sale Price (৳)</label>
+            <input type="number" id="product-sale-price" class="admin-input" min="0" placeholder="Optional">
+          </div>
+          <div>
+            <label class="admin-label" for="product-stock-quantity">Stock Quantity *</label>
+            <input type="number" id="product-stock-quantity" class="admin-input" required min="0">
+          </div>
+        </div>
+
+        <div>
+          <label class="admin-label" for="product-sizes">Sizes (comma-separated)</label>
+          <input type="text" id="product-sizes" class="admin-input" placeholder="S,M,L,XL,XXL">
+        </div>
+
+        <div>
+          <label class="admin-label" for="product-details">Product Details</label>
+          <textarea id="product-details" class="admin-textarea" style="min-height:80px;" placeholder="Material, care instructions, fit notes..."></textarea>
+        </div>
+
+        <div class="image-input-grid">
+          <div class="image-input-item">
+            <label class="admin-label" for="product-image-1">Image 1 URL</label>
+            <input type="text" id="product-image-1" class="admin-input" placeholder="https://...">
+            <img id="product-image-1-preview" src="" alt="" style="display:none;">
+          </div>
+          <div class="image-input-item">
+            <label class="admin-label" for="product-image-2">Image 2 URL</label>
+            <input type="text" id="product-image-2" class="admin-input" placeholder="https://...">
+            <img id="product-image-2-preview" src="" alt="" style="display:none;">
+          </div>
+          <div class="image-input-item">
+            <label class="admin-label" for="product-image-3">Image 3 URL</label>
+            <input type="text" id="product-image-3" class="admin-input" placeholder="https://...">
+            <img id="product-image-3-preview" src="" alt="" style="display:none;">
+          </div>
+        </div>
+
+        <label style="display:flex; align-items:center; gap:10px; cursor:pointer;">
+          <input type="checkbox" id="product-is-featured" class="admin-checkbox">
+          <span style="font-size:0.85rem;">Featured Product</span>
+        </label>
+
+        <div id="product-form-error" style="display:none; background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.2); color:#b91c1c; padding: 10px 16px; border-radius: 12px; font-size: 0.8rem;"></div>
+
+        <div style="display:flex; gap:12px; justify-content:flex-end; margin-top: 8px;">
+          <button type="button" class="btn-admin-secondary" onclick="closeProductModal()">Cancel</button>
+          <button type="submit" id="product-save-btn" class="btn-admin-primary">Save Product</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       DELETE CONFIRMATION MODAL
+       ========================================== -->
+  <div id="delete-modal-overlay" class="admin-modal-overlay">
+    <div class="admin-modal" style="max-width: 420px;">
+      <div class="admin-modal-header">
+        <h2>Confirm Deletion</h2>
+        <button class="btn-icon" onclick="closeDeleteModal()">
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <p id="delete-modal-message" style="font-size:0.9rem; color: var(--dark-gray); margin-bottom: 24px;">
+        Are you sure you want to delete this item? This action cannot be undone.
+      </p>
+      <div style="display:flex; gap:12px; justify-content:flex-end;">
+        <button class="btn-admin-secondary" onclick="closeDeleteModal()">Cancel</button>
+        <button class="btn-admin-danger" id="confirm-delete-btn" style="padding: 12px 24px;">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       ORDER DETAIL MODAL
+       ========================================== -->
+  <div id="order-modal-overlay" class="admin-modal-overlay">
+    <div class="admin-modal">
+      <div class="admin-modal-header">
+        <h2>Order Details</h2>
+        <button class="btn-icon" onclick="closeOrderModal()">
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div id="order-modal-content"></div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       TOAST CONTAINER
+       ========================================== -->
+  <div id="toast-container" class="admin-toast-container"></div>
+<script src="https://cdn.backendless.com/sdk/js/latest/backendless.min.js"></script>
+  <script src="../js/backendless-config.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

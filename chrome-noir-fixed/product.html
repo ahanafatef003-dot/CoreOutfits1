@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Product | Core Outfits</title>
+  <meta name="description" content="Shop premium futuristic streetwear from AURIX. Chrome noir aesthetic, gothic luxury fashion.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Cormorant Garamond', 'serif'],
+            body: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-body bg-[#f8f7f4] text-[#0a0a0a] antialiased selection:bg-black selection:text-white">
+
+
+  <!-- ==========================================
+       LOADING SCREEN
+       ========================================== -->
+  <div id="loading-screen" class="loading-screen">
+    <div class="loading-spinner mb-8"></div>
+    <h1 class="font-display text-4xl tracking-[0.3em] uppercase">Core Outfits</h1>
+    <p class="text-xs tracking-[0.4em] uppercase mt-3 text-gray-400">Chrome Noir</p>
+  </div>
+
+  <!-- ==========================================
+       FLOATING CHROME DECORATIVE OBJECTS
+       ========================================== -->
+  <div class="floating-objects-container fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <!-- Orb 1 -->
+    <div class="chrome-orb w-32 h-32 top-[15%] left-[8%] animate-float-slow opacity-40"></div>
+    <!-- Orb 2 -->
+    <div class="chrome-orb w-20 h-20 top-[60%] right-[10%] animate-float opacity-30" style="animation-delay: 2s;"></div>
+    <!-- Orb 3 -->
+    <div class="chrome-orb w-16 h-16 bottom-[20%] left-[15%] animate-float-slow opacity-35" style="animation-delay: 4s;"></div>
+    <!-- Ring 1 -->
+    <div class="chrome-ring w-40 h-40 top-[25%] right-[20%] animate-float opacity-25" style="animation-delay: 1s;"></div>
+    <!-- Ring 2 -->
+    <div class="chrome-ring w-24 h-24 bottom-[30%] right-[25%] animate-float-slow opacity-20" style="animation-delay: 3s;"></div>
+    <!-- Star shape using SVG -->
+    <svg class="absolute top-[40%] left-[5%] w-16 h-16 animate-float opacity-30" style="animation-delay: 2.5s;" viewBox="0 0 24 24" fill="none">
+      <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" fill="url(#chromeGrad)"/>
+      <defs>
+        <linearGradient id="chromeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#e0e0e0"/>
+          <stop offset="50%" stop-color="#ffffff"/>
+          <stop offset="100%" stop-color="#a0a0a0"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <!-- ==========================================
+       NAVBAR
+       ========================================== -->
+  <nav id="navbar" class="navbar-pill fixed top-6 left-1/2 -translate-x-1/2 z-50 glass rounded-full px-4 lg:px-8 py-3 flex items-center justify-between gap-4 lg:gap-12 w-[calc(100%-2rem)] max-w-4xl transition-all duration-500">
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu-btn" class="lg:hidden p-2 -ml-2">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+      </svg>
+    </button>
+
+    <!-- Logo -->
+    <a href="index.html" class="font-display text-2xl font-semibold tracking-wider shrink-0 store-name-text">CORE OUTFITS</a>
+
+    <!-- Desktop Links -->
+    <div class="hidden lg:flex items-center gap-8">
+      <a href="index.html#hero" class="text-xs font-medium tracking-widest uppercase hover:opacity-60 transition-opacity">Home</a>
+      <a href="index.html#shop" class="text-xs font-medium tracking-widest uppercase hover:opacity-60 transition-opacity">Featured</a>
+      <a href="shop.html" class="text-xs font-medium tracking-widest uppercase hover:opacity-60 transition-opacity">Shop</a>
+      <a href="index.html#new" class="text-xs font-medium tracking-widest uppercase hover:opacity-60 transition-opacity">About</a>
+      <a href="index.html#footer" class="text-xs font-medium tracking-widest uppercase hover:opacity-60 transition-opacity">Contact</a>
+    </div>
+
+    <!-- Icons -->
+    <div class="flex items-center gap-3 lg:gap-5">
+      <button id="search-btn" class="p-2 hover:opacity-60 transition-opacity">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
+        </svg>
+      </button>
+      <button class="p-2 hover:opacity-60 transition-opacity relative">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+        </svg>
+        <span id="wishlist-count" class="absolute -top-1 -right-1 w-4 h-4 bg-black text-white text-[10px] rounded-full flex items-center justify-center font-semibold">0</span>
+      </button>
+      <button id="cart-btn" onclick="openCart()" class="p-2 hover:opacity-60 transition-opacity relative">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z"/>
+        </svg>
+        <span id="cart-count" class="absolute -top-1 -right-1 w-4 h-4 bg-black text-white text-[10px] rounded-full flex items-center justify-center font-semibold">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden fixed top-24 left-4 right-4 z-40 glass-strong rounded-2xl p-6 lg:hidden">
+    <div class="flex flex-col gap-4">
+      <a href="index.html#hero" class="text-sm font-medium tracking-widest uppercase py-2 border-b border-gray-100">Home</a>
+      <a href="index.html#shop" class="text-sm font-medium tracking-widest uppercase py-2 border-b border-gray-100">Featured</a>
+      <a href="shop.html" class="text-sm font-medium tracking-widest uppercase py-2 border-b border-gray-100">Shop</a>
+      <a href="index.html#new" class="text-sm font-medium tracking-widest uppercase py-2 border-b border-gray-100">About</a>
+      <a href="index.html#footer" class="text-sm font-medium tracking-widest uppercase py-2">Contact</a>
+    </div>
+  </div>
+
+
+  <!-- ==========================================
+       PRODUCT DETAIL CONTENT
+       ========================================== -->
+  <main class="pt-32 pb-20 lg:pt-40 lg:pb-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+      <!-- Loading State -->
+      <div id="product-loading" class="dynamic-loading">
+        <div class="loading-spinner"></div>
+        <p class="text-sm">Loading product...</p>
+      </div>
+
+      <!-- Error State -->
+      <div id="product-error" class="dynamic-error hidden">
+        <p class="font-display text-2xl text-gray-400">Product not found</p>
+        <p class="text-sm">The product you're looking for doesn't exist or may have been removed.</p>
+        <a href="shop.html" class="inline-block mt-4 px-6 py-3 border border-black text-xs tracking-widest uppercase hover:bg-black hover:text-white transition-all">Back to Shop</a>
+      </div>
+
+      <!-- Product Content (hidden until loaded) -->
+      <div id="product-content" class="hidden">
+
+        <!-- Breadcrumb -->
+        <div class="flex items-center gap-2 text-xs text-gray-400 mb-8 tracking-wider uppercase">
+          <a href="index.html" class="hover:text-black transition-colors">Home</a>
+          <span>/</span>
+          <a href="shop.html" class="hover:text-black transition-colors">Shop</a>
+          <span>/</span>
+          <span id="breadcrumb-name" class="text-black">Product</span>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          <!-- Image Gallery -->
+          <div class="space-y-4">
+            <div class="aspect-[4/5] rounded-3xl overflow-hidden bg-gray-100 relative">
+              <img id="main-image" src="" alt="" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+              <span id="product-badge" class="hidden"></span>
+            </div>
+            <div id="thumbnail-container" class="flex gap-3">
+              <!-- Injected by JS -->
+            </div>
+          </div>
+
+          <!-- Product Info -->
+          <div class="flex flex-col">
+            <p id="product-category-label" class="text-xs tracking-[0.3em] uppercase mb-3 text-gray-500"></p>
+            <h1 id="product-name" class="font-display text-4xl lg:text-6xl font-medium mb-4">Product Name</h1>
+            <div class="flex items-center gap-4 mb-6">
+              <span id="product-price" class="text-2xl lg:text-3xl font-semibold"></span>
+              <span id="product-stock-badge"></span>
+            </div>
+
+            <p id="product-description" class="text-gray-600 leading-relaxed mb-8"></p>
+
+            <div class="mb-6">
+              <label class="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3 block">Size</label>
+              <div id="size-selector" class="flex gap-2 flex-wrap">
+                <!-- Injected by JS -->
+              </div>
+            </div>
+
+            <div class="mb-8">
+              <label class="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3 block">Quantity</label>
+              <div class="qty-stepper inline-flex rounded-xl overflow-hidden">
+                <button onclick="updateQty(-1)" class="hover:bg-gray-100">-</button>
+                <input type="number" id="detail-qty" value="1" min="1" readonly>
+                <button onclick="updateQty(1)" class="hover:bg-gray-100">+</button>
+              </div>
+              <span id="product-stock-text" class="text-sm text-gray-500 ml-4"></span>
+            </div>
+
+            <div class="flex gap-3 mb-10">
+              <button id="add-to-cart-btn" onclick="addToCartFromPage()" class="flex-1 btn-primary btn-magnetic py-4 rounded-full text-xs tracking-widest uppercase">
+                Add to Cart
+              </button>
+              <button id="page-wishlist-btn" onclick="toggleWishlistFromPage()" class="w-14 h-14 rounded-full glass flex items-center justify-center hover:bg-black hover:text-white transition-colors shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Product Details -->
+            <div id="product-details-section" class="border-t border-gray-100 pt-6 hidden">
+              <h4 class="text-xs font-semibold uppercase tracking-widest mb-3 text-gray-500">Product Details</h4>
+              <div id="product-details-content" class="text-sm text-gray-600 leading-relaxed whitespace-pre-line"></div>
+            </div>
+
+            <!-- Product Meta -->
+            <div class="border-t border-gray-100 pt-6 mt-6 space-y-3">
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-500">Category</span>
+                <span id="product-category" class="capitalize">-</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-500">Shipping</span>
+                <span>Calculated at checkout</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-500">Returns</span>
+                <span><a href="return-policy.html" class="underline hover:no-underline">View Policy</a></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reviews Section -->
+        <div class="mt-20 lg:mt-32 reveal">
+          <h2 class="font-display text-3xl lg:text-4xl font-medium mb-10">Customer Reviews</h2>
+          <div id="reviews-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+
+        <!-- Related Products -->
+        <div class="mt-20 lg:mt-32 reveal">
+          <h2 class="font-display text-3xl lg:text-4xl font-medium mb-10">You May Also Like</h2>
+          <div id="related-products" class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+<!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer id="footer" class="glass-strong mt-20 border-t border-white/30">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-24">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+        <!-- Brand -->
+        <div class="lg:col-span-1">
+          <h3 class="font-display text-3xl font-medium mb-4 store-name-text">CORE OUTFITS</h3>
+          <p class="text-sm text-gray-500 leading-relaxed mb-6">
+            Chrome noir luxury streetwear for the avant-garde. Crafted between shadow and light.
+          </p>
+          <div class="flex gap-4 footer-social-icons">
+            <!-- Injected by JS from Settings table -->
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-widest mb-6">Shop</h4>
+          <ul class="space-y-3">
+            <li><a href="shop.html" class="text-sm text-gray-500 hover:text-black transition-colors">All Products</a></li>
+            <li><a href="shop.html?category=tshirts" class="text-sm text-gray-500 hover:text-black transition-colors">T-Shirts</a></li>
+            <li><a href="shop.html?category=hoodies" class="text-sm text-gray-500 hover:text-black transition-colors">Hoodies</a></li>
+            <li><a href="shop.html?category=bandanas" class="text-sm text-gray-500 hover:text-black transition-colors">Bandanas</a></li>
+            <li><a href="shop.html?category=accessories" class="text-sm text-gray-500 hover:text-black transition-colors">Accessories</a></li>
+          </ul>
+        </div>
+
+        <!-- Support -->
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-widest mb-6">Support</h4>
+          <ul class="space-y-3">
+            <li><a href="#footer" class="text-sm text-gray-500 hover:text-black transition-colors">Contact Us</a></li>
+            <li><a href="shipping-policy.html" class="text-sm text-gray-500 hover:text-black transition-colors">Shipping Policy</a></li>
+            <li><a href="return-policy.html" class="text-sm text-gray-500 hover:text-black transition-colors">Return Policy</a></li>
+            <li><a href="size-guide.html" class="text-sm text-gray-500 hover:text-black transition-colors">Size Guide</a></li>
+            <li><a href="terms-conditions.html" class="text-sm text-gray-500 hover:text-black transition-colors">Terms &amp; Conditions</a></li>
+            <li><a href="privacy-policy.html" class="text-sm text-gray-500 hover:text-black transition-colors">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-widest mb-6">Newsletter</h4>
+          <p class="text-sm text-gray-500 mb-4">Subscribe for exclusive drops and early access.</p>
+          <form onsubmit="subscribeNewsletter(event)" class="flex gap-2">
+            <input type="email" placeholder="Your email" required 
+                   class="glass-input rounded-xl flex-1 text-sm">
+            <button type="submit" class="px-5 py-3 bg-black text-white rounded-xl text-xs font-medium tracking-wider uppercase hover:bg-gray-800 transition-colors">
+              Join
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-xs text-gray-400">&copy; 2026 <span class="store-name-text">CORE OUTFITS</span>. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="privacy-policy.html" class="text-xs text-gray-400 hover:text-black transition-colors">Privacy Policy</a>
+          <a href="terms-conditions.html" class="text-xs text-gray-400 hover:text-black transition-colors">Terms &amp; Conditions</a>
+          <a href="return-policy.html" class="text-xs text-gray-400 hover:text-black transition-colors">Returns</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       CART DRAWER
+       ========================================== -->
+  <div id="cart-overlay" class="cart-overlay" onclick="closeCart()"></div>
+  <div id="cart-drawer" class="cart-drawer glass-strong flex flex-col">
+    <div class="p-6 border-b border-gray-100 flex items-center justify-between">
+      <h3 class="font-display text-2xl font-medium">Your Cart</h3>
+      <button onclick="closeCart()" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-black hover:text-white transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-4">
+      <!-- Injected by JS -->
+    </div>
+
+    <div class="p-6 border-t border-gray-100 space-y-4">
+      <div class="flex justify-between items-center">
+        <span class="text-sm text-gray-500">Subtotal</span>
+        <span id="cart-subtotal" class="font-semibold text-lg">৳0</span>
+      </div>
+      <p class="text-xs text-gray-400">Shipping and taxes calculated at checkout.</p>
+      <button onclick="openCheckout()" class="w-full btn-chrome btn-magnetic py-4 rounded-full text-sm tracking-widest uppercase font-semibold">
+        Proceed to Checkout
+      </button>
+      <button onclick="closeCart()" class="w-full text-center text-xs tracking-widest uppercase underline hover:no-underline transition-all py-2">
+        Continue Shopping
+      </button>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       CHECKOUT MODAL
+       ========================================== -->
+  <div id="checkout-modal" class="checkout-modal">
+    <div class="checkout-modal-overlay" onclick="closeCheckout()"></div>
+    <div class="checkout-modal-content glass-strong rounded-3xl overflow-hidden">
+      <div class="p-6 lg:p-10 max-h-[90vh] overflow-y-auto">
+        <div class="flex items-center justify-between mb-8">
+          <div>
+            <h3 class="font-display text-3xl font-medium">Checkout</h3>
+            <p class="text-sm text-gray-500 mt-1">Order ID: <span id="checkout-order-id" class="font-mono">---</span></p>
+          </div>
+          <button onclick="closeCheckout()" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-black hover:text-white transition-colors shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="mb-8 p-6 glass-card rounded-2xl">
+          <h4 class="text-xs font-semibold uppercase tracking-widest mb-4">Order Summary</h4>
+          <div id="checkout-summary" class="space-y-2">
+            <!-- Injected by JS -->
+          </div>
+          <div class="mt-4 pt-4 border-t border-gray-100 flex justify-between items-center">
+            <span class="font-semibold">Total</span>
+            <span id="checkout-total" class="font-display text-2xl font-medium">৳0</span>
+          </div>
+        </div>
+
+        <!-- Checkout Form -->
+        <form onsubmit="submitCheckout(event)" class="space-y-6">
+          <!-- Customer Info -->
+          <div>
+            <h4 class="text-xs font-semibold uppercase tracking-widest mb-4">Customer Information</h4>
+            <div class="grid md:grid-cols-2 gap-4">
+              <input type="text" name="fullName" placeholder="Full Name" required class="glass-input rounded-xl md:col-span-2">
+              <input type="tel" name="phone" placeholder="Phone Number" required class="glass-input rounded-xl md:col-span-2">
+            </div>
+          </div>
+
+          <!-- Delivery Info -->
+          <div>
+            <h4 class="text-xs font-semibold uppercase tracking-widest mb-4">Delivery Address</h4>
+            <div class="grid md:grid-cols-2 gap-4">
+              <select name="district" id="checkout-district" required class="glass-input rounded-xl">
+                <option value="" disabled selected>Select District</option>
+              </select>
+              <input type="text" name="thana" placeholder="Thana / Upazila" required class="glass-input rounded-xl">
+              <input type="text" name="area" placeholder="Area Name" required class="glass-input rounded-xl">
+              <input type="text" name="zip" placeholder="ZIP Code" class="glass-input rounded-xl">
+              <input type="text" name="houseNumber" placeholder="House Number" class="glass-input rounded-xl">
+              <input type="text" name="sector" placeholder="Sector / Block" class="glass-input rounded-xl">
+              <input type="text" name="postOffice" placeholder="Post Office" class="glass-input rounded-xl">
+              <input type="text" name="roadNumber" placeholder="Road Number" class="glass-input rounded-xl">
+            </div>
+          </div>
+
+          <!-- Payment -->
+          <div>
+            <h4 class="text-xs font-semibold uppercase tracking-widest mb-4">Payment Method</h4>
+            <div class="space-y-3">
+              <label class="flex items-center gap-3 p-4 glass-card rounded-xl cursor-pointer hover:border-black/20 transition-colors">
+                <input type="radio" name="payment" value="bkash" class="w-4 h-4 accent-black" onchange="onPaymentMethodChange()">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-lg bg-pink-500 flex items-center justify-center text-white font-bold text-xs">bK</div>
+                  <div>
+                    <p class="font-medium text-sm">bKash</p>
+                    <p class="text-xs text-gray-500">Mobile banking</p>
+                  </div>
+                </div>
+              </label>
+
+              <!-- bKash Payment Instructions -->
+              <div id="bkash-instructions" class="bkash-info-box hidden">
+                <p class="text-sm text-gray-600 mb-2">Send the exact amount below to our bKash number using <strong>Send Money</strong>, then complete your order. We'll verify your payment and confirm your order shortly.</p>
+                <div class="flex items-center justify-between flex-wrap gap-2">
+                  <div>
+                    <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">bKash Number</p>
+                    <p id="bkash-number-display" class="bkash-number">---</p>
+                  </div>
+                  <div>
+                    <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Amount to Send</p>
+                    <p id="bkash-amount-display" class="bkash-amount">৳0</p>
+                  </div>
+                </div>
+                <a id="bkash-pay-link" href="bkash://pay?amount=0" class="bkash-pay-link">
+                  Open bKash App
+                </a>
+              </div>
+
+              <label class="flex items-center gap-3 p-4 glass-card rounded-xl cursor-pointer hover:border-black/20 transition-colors">
+                <input type="radio" name="payment" value="cod" checked class="w-4 h-4 accent-black" onchange="onPaymentMethodChange()">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-lg bg-gray-200 flex items-center justify-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-medium text-sm">Cash on Delivery</p>
+                    <p class="text-xs text-gray-500">Pay when you receive</p>
+                  </div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="w-full btn-chrome btn-magnetic py-5 rounded-full text-sm tracking-widest uppercase font-semibold animate-glow">
+            Place Order
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       SEARCH OVERLAY
+       ========================================== -->
+  <div id="search-overlay" class="search-overlay">
+    <div class="search-overlay-bg" onclick="closeSearch()"></div>
+    <div class="relative z-10 w-full max-w-2xl px-6">
+      <div class="relative">
+        <input type="text" id="search-input-overlay" placeholder="Search products..." 
+               class="w-full bg-transparent border-b-2 border-black text-3xl lg:text-5xl font-display py-4 outline-none placeholder:text-gray-300">
+        <button onclick="closeSearch()" class="absolute right-0 top-1/2 -translate-y-1/2 text-gray-400 hover:text-black transition-colors">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <p class="text-sm text-gray-400 mt-4">Press ESC to close</p>
+    </div>
+  </div>
+<script src="https://api.backendless.com/sdk/js/latest/backendless.min.js"></script>
+  <script src="js/backendless-config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/site.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
