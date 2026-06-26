@@ -14,7 +14,7 @@ const BACKENDLESS_CONFIG = {
   APP_ID: "6507EBB2-62B8-4983-A6AA-9005906256E0",
 
   // Found in: Backendless Console -> App Settings -> API Keys -> REST API Key
-  API_KEY: "A08590EC-3997-447B-8F4D-D13B08F239AB",
+  API_KEY: "BD933805-7CA7-4926-9465-7028215F5CE8",
 
   // Base REST API URL - do not change unless using a custom/EU host
   API_BASE: "https://api.backendless.com",
